@@ -65,3 +65,12 @@ You can run the included benchmark script to verify performance in your environm
 python3 hooks/gemini-cli/benchmarks/benchmark_hooks.py
 ```
 *(Note: Requires original scripts to be present at the paths defined in the script)*
+
+### Alternative: Node.js Hook (No Compilation Required)
+If you prefer not to build the Rust binary, you can use the Node.js version of the hook:
+
+1. Locate the script in `hooks/gemini-cli/rtk_wrap.js`.
+2. Configure `~/.gemini/settings.json`:
+   ```json
+   "command": "node <PATH_TO_RTK_REPO>/hooks/gemini-cli/rtk_wrap.js"
+   ```
