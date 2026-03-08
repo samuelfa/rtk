@@ -3,12 +3,12 @@ import subprocess
 import json
 import os
 
-# Rutas de los scripts/binarios
+# Script and binary paths
 NODE_SCRIPT = '/home/samuel/.gemini/hooks/rtk_wrap.js'
 RUST_BINARY = '/home/samuel/.gemini/hooks/rtk-wrapper-rs/target/release/rtk-wrapper-rs'
 BASH_SCRIPT = '/home/samuel/ai/rtk/hooks/rtk-rewrite.sh'
 
-# Input JSON de prueba
+# Test JSON input
 test_input = {
     "toolName": "run_shell_command",
     "args": {
@@ -33,25 +33,25 @@ def benchmark(name, cmd_list, iterations=50):
         
     end_time = time.perf_counter()
     avg_ms = ((end_time - start_time) / iterations) * 1000
-    print(f"✅ {name}: {avg_ms:.2f} ms por llamada\n")
+    print(f"✅ {name}: {avg_ms:.2f} ms per call\n")
     return avg_ms
 
-# Ejecutar pruebas
+# Run performance tests
 print("--- Hook Performance Comparison (50 iterations) ---\n")
 results = {}
 try:
     results['Node.js'] = benchmark("Node.js", ["node", NODE_SCRIPT])
-except Exception as e: print(f"Error en Node: {e}")
+except Exception as e: print(f"Error in Node: {e}")
 
 try:
     results['Rust (Native)'] = benchmark("Rust", [RUST_BINARY])
-except Exception as e: print(f"Error en Rust: {e}")
+except Exception as e: print(f"Error in Rust: {e}")
 
 try:
     results['Bash (+jq)'] = benchmark("Bash", [BASH_SCRIPT])
-except Exception as e: print(f"Error en Bash: {e}")
+except Exception as e: print(f"Error in Bash: {e}")
 
-# Conclusión
+# Conclusion
 if results:
     best = min(results, key=results.get)
-    print(f"🏆 Ganador: {best}")
+    print(f"🏆 Winner: {best}")
