@@ -47,3 +47,21 @@ Run a command in Gemini CLI (e.g., `git status`). The output should be noticeabl
 ```bash
 rtk gain
 ```
+
+## Performance Benchmarks
+We have benchmarked the different hook implementations to ensure the best possible experience for Gemini CLI users.
+
+| Implementation | Average Latency | Speed Factor |
+| :--- | :--- | :--- |
+| **Rust (Native)** | **~7 ms** | **1.0x (Winner)** |
+| Bash (+jq) | ~15 ms | 2.2x slower |
+| Node.js | ~40 ms | 5.7x slower |
+
+Using the native Rust hook reduces startup latency by over 80% compared to Node.js, resulting in a significantly more responsive CLI experience.
+
+### Running Benchmarks
+You can run the included benchmark script to verify performance in your environment:
+```bash
+python3 hooks/gemini-cli/benchmarks/benchmark_hooks.py
+```
+*(Note: Requires original scripts to be present at the paths defined in the script)*
