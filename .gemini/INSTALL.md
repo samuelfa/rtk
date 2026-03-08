@@ -5,7 +5,7 @@ RTK (Rust Token Killer) can be integrated into Gemini CLI to significantly reduc
 ## Prerequisites
 - **RTK Binary**: Ensure you have the main `rtk` binary installed and available in your PATH.
   ```bash
-  cargo install rtk
+  cargo install --git https://github.com/rtk-ai/rtk
   ```
 - **Rust Toolchain**: Required to build the high-performance hook.
 
