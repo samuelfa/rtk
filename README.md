@@ -96,6 +96,11 @@ rtk gain        # Should show token savings stats
 
 > **Name collision warning**: Another project named "rtk" (Rust Type Kit) exists on crates.io. If `rtk gain` fails, you have the wrong package. Use `cargo install --git` above instead.
 
+
+### Gemini CLI
+
+RTK supports Gemini CLI through a high-performance Rust hook. See [.gemini/INSTALL.md](.gemini/INSTALL.md) for detailed integration instructions.
+
 ## Quick Start
 
 ```bash
